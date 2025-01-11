@@ -1,0 +1,161 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: #222;
+  padding: 16px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+h1 {
+  color: #31dcf9;
+  font-size: 30px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+h1 img {
+  width: 30px;
+  height: auto;
+}
+
+canvas {
+  background: #fff;
+}
+
+header {
+  grid-area: header;
+  background: silver;
+  padding: 2px;
+}
+
+header button {
+  border: 0;
+  background: transparent;
+}
+
+header button:hover {
+  box-shadow:
+    1px 1px black,
+    inset -1px -1px gray,
+    inset 1px 1px white;
+}
+
+main {
+  grid-area: main;
+  padding: 2px;
+}
+
+footer {
+  grid-area: footer;
+  background: silver;
+  padding: 4px;
+}
+
+#container {
+  border: 1px solid #808080;
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "aside main main"
+    "footer footer footer";
+}
+
+aside {
+  background: silver;
+  grid-area: aside;
+  width: 52px;
+  padding-top: 2px;
+}
+
+aside nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1px;
+  justify-content: center;
+}
+
+aside button {
+  width: 24px;
+  height: 24px;
+  background: #bdbdbd url('./icons/draw.png') no-repeat center;
+  border: 1.5px solid #eee;
+  border-right-color: #000;
+  border-bottom-color: #000;
+  image-rendering: pixelated;
+}
+
+aside button.active {
+  background-color: #eee;
+  border-color: #000;
+  border-right-color: #eee;
+  border-bottom-color: #eee;
+}
+
+aside button[disabled] {
+  pointer-events: none;
+  opacity: .5;
+}
+
+#erase-btn {
+  background-image: url('./icons/erase.png');
+}
+
+#rectangle-btn {
+  background-image: url('./icons/rectangle.png');
+}
+
+#ellipse-btn {
+  background-image: url('./icons/ellipse.png');
+}
+
+#picker-btn {
+  background-image: url('./icons/picker.png');
+}
+
+#clear-btn {
+  background-image: url('./icons/trash.png');
+  background-size: 18px;
+}
+
+#save-btn {
+  background-image: url('./icons/save.png');
+}
+
+#login-container, #chat-container {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background: white;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#messages {
+  height: 200px;
+  overflow-y: auto;
+  margin-bottom: 10px;
+}
+
+#user-list {
+  margin-bottom: 10px;
+}
+
+#chat-form {
+  display: flex;
+}
+
+#chat-input {
+  flex-grow: 1;
+  margin-right: 5px;
+}
+

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Draw</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Página de Login -->
+  <div id="login-page">
+    <input id="login-input" type="text" placeholder="Ingresa tu nombre">
+    <button id="login-button">Entrar</button>
+  </div>
+
+  <!-- Página de Dibujo -->
+  <div id="draw-page" style="display: none;">
+    <h1>
+      <img src="./icon.png" alt="Draw" />
+      Draw
+    </h1>
+
+    <div id="container">
+      <header>
+        <button>File</button>
+        <button>Edit</button>
+        <button>View</button>
+        <button>Image</button>
+        <button>Options</button>
+        <button>Help</button>
+      </header>
+
+      <aside>
+        <nav>
+          <button id="draw-btn" title="Pincel"></button>
+          <button id="erase-btn" title="Borrar"></button>
+          <button id="rectangle-btn" title="Rectángulo"></button>
+          <button id="ellipse-btn" title="Elipse"></button>
+          <button disabled id="picker-btn" title="Capturar Color"></button>
+          <button id="clear-btn" title="Limpiar dibujo"></button>
+          <button id="save-btn" title="Guardar dibujo"></button>
+        </nav>
+      </aside>
+
+      <main>
+        <canvas id="canvas" width="400" height="300"></canvas>
+      </main>
+
+      <footer>
+        <input type="color" id="color-picker" value="#000000" />
+      </footer>
+    </div>
+
+    <ul id="user-list"></ul>
+    <div id="chat-section">
+      <div id="chat-box"></div>
+      <input id="message-input" type="text" placeholder="Escribe un mensaje">
+      <button id="send-button">Enviar</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
