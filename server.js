@@ -1,41 +1,44 @@
-// Importar las dependencias necesarias
 const http = require('http');
 const WebSocket = require('ws');
+const express = require('express');
+const path = require('path');
 
-// Crear el servidor HTTP
-const server = http.createServer((req, res) => {
-  res.writeHead(200, { 'Content-Type': 'text/plain' });
-  res.end('WebSocket server is running.\n');
+const app = express();
+const server = http.createServer(app);
+
+const wss = new WebSocket.Server({ port: 8080 });
+console.log('Servidor WebSocket en http://localhost:8080');
+
+const publicPath = path.join(__dirname, 'public');
+app.use(express.static(publicPath));
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(publicPath, 'index.html'));
 });
 
-// Crear el servidor WebSocket
-const wss = new WebSocket.Server({ server });
+server.listen(3000, () => {
+  console.log('Cliente en http://localhost:3000');
+});
 
-// Lista para almacenar usuarios conectados
-const users = new Map(); // { socket: username }
+const users = new Map();
 
-// Manejar eventos de conexión
 wss.on('connection', (ws) => {
   console.log('Nuevo cliente conectado');
 
-  // Manejar mensajes recibidos de un cliente
   ws.on('message', (message) => {
     try {
       const data = JSON.parse(message);
       switch (data.type) {
         case 'login':
-          // Registrar al usuario
           users.set(ws, data.username);
           broadcast({ type: 'userlist', users: Array.from(users.values()) });
           break;
 
         case 'chat':
-          // Enviar mensaje de chat a todos los usuarios
           broadcast({ type: 'chat', username: users.get(ws), message: data.message });
           break;
 
         case 'draw':
-          // Compartir actualizaciones del lienzo
           broadcast({ type: 'draw', username: users.get(ws), drawData: data.drawData }, ws);
           break;
 
@@ -47,7 +50,6 @@ wss.on('connection', (ws) => {
     }
   });
 
-  // Manejar cierre de conexión
   ws.on('close', () => {
     console.log('Cliente desconectado');
     users.delete(ws);
@@ -55,7 +57,6 @@ wss.on('connection', (ws) => {
   });
 });
 
-// Función para enviar mensajes a todos los clientes
 function broadcast(data, excludeSocket) {
   const message = JSON.stringify(data);
   wss.clients.forEach((client) => {
@@ -64,9 +65,3 @@ function broadcast(data, excludeSocket) {
     }
   });
 }
-
-// Iniciar el servidor
-const PORT = 8080;
-server.listen(PORT, () => {
-  console.log(`Servidor WebSocket funcionando en http://localhost:${PORT}`);
-});
