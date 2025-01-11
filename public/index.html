@@ -1,64 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Draw</title>
+  <title>PixChat</title>
   <link rel="stylesheet" href="styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
+
 <body>
-  <!-- Página de Login -->
-  <div id="login-page">
-    <input id="login-input" type="text" placeholder="Ingresa tu nombre">
-    <button id="login-button">Entrar</button>
-  </div>
-
-  <!-- Página de Dibujo -->
-  <div id="draw-page" style="display: none;">
-    <h1>
-      <img src="./icon.png" alt="Draw" />
-      Draw
-    </h1>
-
-    <div id="container">
-      <header>
-        <button>File</button>
-        <button>Edit</button>
-        <button>View</button>
-        <button>Image</button>
-        <button>Options</button>
-        <button>Help</button>
-      </header>
-
-      <aside>
-        <nav>
-          <button id="draw-btn" title="Pincel"></button>
-          <button id="erase-btn" title="Borrar"></button>
-          <button id="rectangle-btn" title="Rectángulo"></button>
-          <button id="ellipse-btn" title="Elipse"></button>
-          <button disabled id="picker-btn" title="Capturar Color"></button>
-          <button id="clear-btn" title="Limpiar dibujo"></button>
-          <button id="save-btn" title="Guardar dibujo"></button>
-        </nav>
-      </aside>
-
-      <main>
-        <canvas id="canvas" width="400" height="300"></canvas>
-      </main>
-
-      <footer>
-        <input type="color" id="color-picker" value="#000000" />
-      </footer>
+  <div id="app-container">
+    <div id="login-page">
+      <h1>Draw</h1>
+      <input id="login-input" type="text" placeholder="Enter your name">
+      <button id="login-button">Enter</button>
     </div>
 
-    <ul id="user-list"></ul>
-    <div id="chat-section">
-      <div id="chat-box"></div>
-      <input id="message-input" type="text" placeholder="Escribe un mensaje">
-      <button id="send-button">Enviar</button>
+    <div id="draw-page" style="display: none;">
+      <div id="toolbar">
+        <h1>
+          <img src="./icon.png" alt="Draw" />
+          Draw
+        </h1>
+        <button id="draw-btn" title="Brush"> <i class="fa-solid fa-pen"></i> </button>
+        <button id="erase-btn" title="Erase"> <i class="fa-solid fa-eraser"></i> </button>
+        <button id="rectangle-btn" title="Rectangle"> <i class="fa-regular fa-square"></i> </button>
+        <button id="ellipse-btn" title="Ellipse"> <i class="fa-regular fa-circle"></i> </button>
+        <button id="clear-btn" title="Clear Canvas"> <i class="fa-solid fa-trash"></i> </button>
+        <button id="save-btn" title="Save Drawing"> <i class="fa-solid fa-download"></i> </button>
+        <input type="color" id="color-picker" value="#000000" />
+        <button id="toggle-chat-btn" title="Toggle Chat"> <i class="fa-regular fa-comments"></i> </button>
+      </div>
+      <div id="canvas-container">
+        <canvas id="canvas"></canvas>
+      </div>
+      <div id="chat-container" class="hidden">
+        <h2>Chat</h2>
+        <ul id="user-list"></ul>
+        <div id="chat-box"></div>
+        <div id="chat-input-container">
+          <input id="message-input" type="text" placeholder="Type a message">
+          <button id="send-button"><i class="fa-solid fa-paper-plane"></i></button>
+          <button id="screenshot-button"><i class="fa-solid fa-camera"></i></button>
+        </div>
+      </div>
     </div>
   </div>
 
   <script src="script.js"></script>
 </body>
+
 </html>
