@@ -11,11 +11,15 @@
 
 <body>
   <div id="app-container">
-    <div id="login-page" >
-      <img src="./logoFondo.jpeg" alt="Draw" width="200" height="200" />
-      <h1>PixChat</h1>
-      <input id="login-input" type="text" placeholder="Ingresa tu nombre">
-      <button id="login-button">Entrar</button>
+    <div id="login-page">
+      <div class="container-login">
+        <img src="./logoFondo.jpeg" alt="Draw" width="200" height="200" />
+        <h1>PixChat</h1>
+        <h2>Bienvenido</h2>
+        <p>Nombre de usuario</p>
+        <input id="login-input" type="text" placeholder="Ingresa tu nombre" class="input-login"/>
+        <button id="login-button" class="btn-login">Entrar</button>
+      </div>
     </div>
 
     <div id="draw-page" style="display: none;">
@@ -43,7 +47,7 @@
         <div id="chat-input-container">
           <input id="message-input" type="text" placeholder="Escribe un mensaje">
           <button id="send-button" title="Enviar"><i class="fa-solid fa-paper-plane"></i></button>
-          <button id="share-btn" title="Compartir lienzo"  ><i class="fa-solid fa-camera"></i></button>
+          <button id="share-btn" class="btn-share" title="Compartir lienzo"><i class="fa-solid fa-camera"></i></button>
         </div>
       </div>
     </div>

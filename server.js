@@ -16,8 +16,8 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(publicPath, 'index.html'));
 });
 
-server.listen(3000, () => {
-  console.log('Cliente en http://localhost:3000');
+server.listen(3001, () => {
+  console.log('Cliente en http://localhost:3001');
 });
 
 const users = new Map();

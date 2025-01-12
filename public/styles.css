@@ -31,27 +31,42 @@ body {
 
 #login-page h1 {
   font-size: 3rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   color: #31dcf9;
+}
+
+#login-page h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #31dcf9;
+}
+
+#login-page p {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #000;
 }
 
 #login-input {
   padding: 0.5rem;
   font-size: 1rem;
-  margin-bottom: 1rem;
-  width: 200px;
-  background: #2C2C2C;
-  border: none;
-  color: #FFFFFF;
+  margin-bottom: 1.5rem;
+  width: 75%;
+  height: 40px;
+  border-radius: 8px;
 }
 
 #login-button {
   padding: 0.5rem 1rem;
   font-size: 1rem;
+  width: 75%;
+  height: 40px;
   background: #31dcf9;
   border: none;
   color: #121212;
   cursor: pointer;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
 }
 
 #draw-page {
@@ -107,38 +122,6 @@ body {
 
 #toolbar button.active {
   background-color: #31dcf9;
-}
-
-#draw-btn {
-  background-image: url('./icons/draw.png');
-}
-
-#erase-btn {
-  background-image: url('./icons/erase.png');
-}
-
-#rectangle-btn {
-  background-image: url('./icons/rectangle.png');
-}
-
-#ellipse-btn {
-  background-image: url('./icons/ellipse.png');
-}
-
-#picker-btn {
-  background-image: url('./icons/picker.png');
-}
-
-#clear-btn {
-  background-image: url('./icons/trash.png');
-}
-
-#save-btn {
-  background-image: url('./icons/save.png');
-}
-
-#toggle-chat-btn {
-  background-image: url('./icons/chat.png');
 }
 
 #color-picker {
@@ -263,4 +246,25 @@ button.active i {
 #color-picker:focus {
   outline: 2px solid #000;
   outline-offset: 2px;
+}
+
+.btn-share {
+  background: #4CAF50;
+  color: #121212;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.container-login {
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 400px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 }
