@@ -11,26 +11,27 @@
 
 <body>
   <div id="app-container">
-    <div id="login-page">
-      <h1>Draw</h1>
-      <input id="login-input" type="text" placeholder="Enter your name">
-      <button id="login-button">Enter</button>
+    <div id="login-page" >
+      <img src="./logoFondo.jpeg" alt="Draw" width="200" height="200" />
+      <h1>PixChat</h1>
+      <input id="login-input" type="text" placeholder="Ingresa tu nombre">
+      <button id="login-button">Entrar</button>
     </div>
 
     <div id="draw-page" style="display: none;">
       <div id="toolbar">
         <h1>
-          <img src="./icon.png" alt="Draw" />
-          Draw
+          <img src="./logoPC.png" alt="Draw" />
+          PixChat
         </h1>
-        <button id="draw-btn" title="Brush"> <i class="fa-solid fa-pen"></i> </button>
-        <button id="erase-btn" title="Erase"> <i class="fa-solid fa-eraser"></i> </button>
-        <button id="rectangle-btn" title="Rectangle"> <i class="fa-regular fa-square"></i> </button>
-        <button id="ellipse-btn" title="Ellipse"> <i class="fa-regular fa-circle"></i> </button>
-        <button id="clear-btn" title="Clear Canvas"> <i class="fa-solid fa-trash"></i> </button>
-        <button id="save-btn" title="Save Drawing"> <i class="fa-solid fa-download"></i> </button>
+        <button id="draw-btn" title="Pincel"> <i class="fa-solid fa-pen"></i> </button>
+        <button id="erase-btn" title="Borrar"> <i class="fa-solid fa-eraser"></i> </button>
+        <button id="rectangle-btn" title="Rectangulo"> <i class="fa-regular fa-square"></i> </button>
+        <button id="ellipse-btn" title="Elipse"> <i class="fa-regular fa-circle"></i> </button>
+        <button id="clear-btn" title="Limpiar lienzo"> <i class="fa-solid fa-trash"></i> </button>
+        <button id="save-btn" title="Guardar dibujo"> <i class="fa-solid fa-download"></i> </button>
         <input type="color" id="color-picker" value="#000000" />
-        <button id="toggle-chat-btn" title="Toggle Chat"> <i class="fa-regular fa-comments"></i> </button>
+        <button id="toggle-chat-btn" title="Abrir chat"> <i class="fa-regular fa-comments"></i> </button>
       </div>
       <div id="canvas-container">
         <canvas id="canvas"></canvas>
@@ -40,9 +41,9 @@
         <ul id="user-list"></ul>
         <div id="chat-box"></div>
         <div id="chat-input-container">
-          <input id="message-input" type="text" placeholder="Type a message">
-          <button id="send-button"><i class="fa-solid fa-paper-plane"></i></button>
-          <button id="screenshot-button"><i class="fa-solid fa-camera"></i></button>
+          <input id="message-input" type="text" placeholder="Escribe un mensaje">
+          <button id="send-button" title="Enviar"><i class="fa-solid fa-paper-plane"></i></button>
+          <button id="share-btn" title="Compartir lienzo"  ><i class="fa-solid fa-camera"></i></button>
         </div>
       </div>
     </div>

@@ -35,7 +35,7 @@ wss.on('connection', (ws) => {
           break;
 
         case 'chat':
-          broadcast({ type: 'chat', username: users.get(ws), message: data.message });
+          broadcast({ type: 'chat', username: users.get(ws), message: data.message, isImage: data.isImage});
           break;
 
         case 'draw':
