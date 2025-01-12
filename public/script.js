@@ -45,6 +45,8 @@ const $chatBox = $('#chat-box')
 const $messageInput = $('#message-input')
 const $sendButton = $('#send-button')
 const ctx = $canvas.getContext('2d')
+const $shareBtn = $('#share-btn');
+
 
 const socket = new WebSocket('ws://localhost:8080');
 
@@ -62,6 +64,11 @@ $loginButton.addEventListener('click', () => {
     $loginPage.style.display = 'none';
     $drawPage.style.display = 'block';
   }
+});
+
+$shareBtn.addEventListener('click', () => {
+  const drawData = $canvas.toDataURL(); // Captura el lienzo como una imagen en formato base64
+  sendMessage('chat', { message: drawData, isImage: true }); // Envía la imagen como un mensaje de chat
 });
 
 $sendButton.addEventListener('click', () => {
@@ -85,9 +92,21 @@ socket.addEventListener('message', (event) => {
       break;
 
     case 'chat':
-      const message = document.createElement('div');
-      message.textContent = `${data.username}: ${data.message}`;
-      $chatBox.appendChild(message);
+    // Mostrar mensajes de chat
+    const messageContainer = document.createElement('div');
+      if (data.isImage) {
+        const img = document.createElement('img');
+        img.src = data.message; 
+        img.style.maxWidth = '200px'; 
+        img.style.maxHeight = '200px';
+        messageContainer.appendChild(img);
+        const usernameLabel = document.createElement('div');
+        usernameLabel.textContent = `${data.username} compartió:`;
+        messageContainer.prepend(usernameLabel); 
+      } else {
+        messageContainer.textContent = `${data.username}: ${data.message}`;
+      }
+      $chatBox.appendChild(messageContainer);
       $chatBox.scrollTop = $chatBox.scrollHeight;
       break;
 
