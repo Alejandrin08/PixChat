@@ -67,8 +67,8 @@ $loginButton.addEventListener('click', () => {
 });
 
 $shareBtn.addEventListener('click', () => {
-  const drawData = $canvas.toDataURL(); // Captura el lienzo como una imagen en formato base64
-  sendMessage('chat', { message: drawData, isImage: true }); // Envía la imagen como un mensaje de chat
+  const drawData = $canvas.toDataURL();
+  sendMessage('chat', { message: drawData, isImage: true }); 
 });
 
 $sendButton.addEventListener('click', () => {
@@ -92,7 +92,6 @@ socket.addEventListener('message', (event) => {
       break;
 
     case 'chat':
-    // Mostrar mensajes de chat
     const messageContainer = document.createElement('div');
       if (data.isImage) {
         const img = document.createElement('img');
